@@ -212,7 +212,7 @@ test("the table has 2 anchor elements that open the link in a new tab", async ({
   const linksWithBlankTargets = page
     .locator("table")
     .locator('[target="_blank"]');
-  await expect(linksWithBlankTargets).HaveCount(2);
+  await expect(linksWithBlankTargets).toHaveCount(2);
 });
 
 test("has a an anchor element that has a valid email link text", async ({
@@ -226,7 +226,7 @@ test("has a an anchor element that has a valid email link text", async ({
     .all()
     .then((val) => val.length);
 
-  expect(emailAnchorAttributeValue).BeGreaterThan(0);
+  expect(emailAnchorAttributeValue).toBeGreaterThan(0);
 });
 
 test("has an anchor element that runs an email client when clicked", async ({
@@ -239,5 +239,5 @@ test("has an anchor element that runs an email client when clicked", async ({
     .filter({ hasText: emailRegex })
     .getAttribute("href");
 
-  expect(emailAnchorAttributeValue).Contain("mailto:");
+  expect(emailAnchorAttributeValue).toContain("mailto:");
 });
